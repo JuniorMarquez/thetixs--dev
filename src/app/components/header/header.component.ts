@@ -43,7 +43,7 @@ submitted = false;
     });
       this.user = this.authService.getCurrentUser();
       this.onCheckUser();
-//      this.router.navigate(['/coming']);
+      this.router.navigate(['/coming']);
   }
 
     onRegister(): void{
