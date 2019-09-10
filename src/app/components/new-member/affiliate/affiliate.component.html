@@ -1,0 +1,143 @@
+<section class="dashboard gray-bg padd-0 mrg-top-50 " style="min-height: 600px;">
+			<div class="container-fluid" >
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-9">
+						<div class="row mrg-0 mrg-top-20">
+							<div class="tr-single-box">
+								<div class="tr-single-header">
+									
+									<h3 class="dashboard-title">
+										<span>
+											<a (click)="reset()" >
+										 		<i class=" ti-angle-left"></i>
+										 	</a>
+										 </span> 
+										Affiliate account
+										
+									</h3>
+								</div>
+								
+
+							<!-- 	<div class="tr-single-header">
+									<h3 class="dashboard-title">Partner profile </h3>
+								</div> -->
+
+
+							<!-- 	<div class="tr-single-header">
+									<h3 class="dashboard-title">Affiliate profile </h3>
+								</div> -->
+
+
+								
+
+								 
+
+								<div class="tr-single-body"  >
+									<aw-wizard>
+										<aw-wizard-step stepTitle="Personal">
+											<div class="row" > 
+												<div class="col-md-4 col-xs-12">
+													<label>Your Phone</label>
+													<input type="text" class="form-control" placeholder="960 234 34 56" />
+												</div>
+											</div>								
+											<button type="button" awNextStep>next</button>
+										  </aw-wizard-step>
+
+										  <aw-wizard-step stepTitle="Company" awOptionalStep>
+										      <div class="row" > 
+												<div class="col-xs-12">
+													<label>Company address</label>
+													<textarea class="form-control height-80" placeholder="Company address"></textarea>
+												</div>
+												<div class="col-md-12 col-xs-12">
+													<label>Country</label>
+													<input type="text" class="form-control" placeholder="Country" />
+												</div>
+												<div class="col-xs-12">
+													<label>City</label>
+													<textarea class="form-control height-80" placeholder="Company city"></textarea>
+												</div> 
+											</div>
+										    <button type="button" awPreviousStep>previous</button>
+										    <button type="button" awNextStep>next</button>
+										  </aw-wizard-step>
+										 
+										  <aw-wizard-step stepTitle="Finish">
+										    <div class="row">
+												<div class="col-md-12 text-center">
+													<i class="ti-thumb-up cl-success font-50"></i>
+													<h3 class="cl-success">Congratulations!</h3>
+													<p><strong></strong> The registration has been submitted successfully</p>
+												</div>
+											</div>
+										    <button type="button" awPreviousStep>Previous</button>
+										    <button type="button" >Finish</button>
+										  </aw-wizard-step>
+									</aw-wizard>
+									<!-- <form id="msAffiliate" >
+										
+										<ul id="progressbar" >
+											<li class="active">Person</li>
+											<li>Company</li>
+											<li>Succes</li>
+										</ul>
+
+
+										<fieldset>							
+									
+
+											<div class="row" > 
+												<div class="col-md-4 col-xs-12">
+													<label>Your Phone</label>
+													<input type="text" class="form-control" placeholder="960 234 34 56" />
+												</div>
+											</div>								
+												<input type="button" name="next" class="next action-button" value="Next" />
+										</fieldset>
+
+										
+										<fieldset  >
+											<div class="row" > 
+												<div class="col-xs-12">
+													<label>Company address</label>
+													<textarea class="form-control height-80" placeholder="Company address"></textarea>
+												</div>
+												<div class="col-md-12 col-xs-12">
+													<label>Country</label>
+													<input type="text" class="form-control" placeholder="Country" />
+												</div>
+												<div class="col-xs-12">
+													<label>City</label>
+													<textarea class="form-control height-80" placeholder="Company city"></textarea>
+												</div> 
+											</div>	
+
+
+
+											<input type="button" name="previous" class="previous action-button" value="Previous" />
+											<input type="button" name="next" class="next action-button" value="Next" />
+										</fieldset>
+
+									
+										
+										<fieldset > 
+											<div class="row">
+												<div class="col-md-12 text-center">
+													<i class="ti-thumb-up cl-success font-50"></i>
+													<h3 class="cl-success">Congratulations!</h3>
+													<p><strong>Hi Daniel</strong>, You Listing has been submitted successfully</p>
+												</div>
+											</div>
+										</fieldset>
+									</form>	
+ -->
+								</div>
+					
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</section>
+<app-pre-footer></app-pre-footer>
