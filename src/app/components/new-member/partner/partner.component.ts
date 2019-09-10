@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-partner',
@@ -15,16 +16,74 @@ import { Location } from '@angular/common';
   styleUrls: ['./partner.component.css']
 })
 export class PartnerComponent implements OnInit {
+
+  ngFormPartner: FormGroup;
+  submitted = false;
+
+
 partner:boolean=false;
 affiliate:boolean=false;
 selectorType:boolean=true;  
-  constructor(public _uw:UserWService, private location: Location, private router: Router) { }
-  		
+constructor(public _uw:UserWService, private location: Location, private router: Router,private formBuilder: FormBuilder) { }
+  		  
+  public user : CardInterface ={
+      userd:"",
+      phone:""
+      //password:""
+    };
+  public isError = false;
+  public isLogged =false;
+  
+
+
+
+
 ngOnInit() {
-    if (this._uw.selectorA===true){
+
+   this.ngFormPartner = this.formBuilder.group({
+      phone: ['', [Validators.required,Validators.phone]]
+      //password: ['', [Validators.required]]
+    });
+
+
+   // if (this._uw.selectorA===true){
    //  location.reload();
-    }
+   // }
   }
+
+    get fval() {
+  return this.ngFormPartner.controls;
+  }
+
+  sendProfile(){
+     this.submitted = true;
+      if (this.ngFormPartner.invalid) {
+      return;
+        } 
+//      alert('form fields are validated successfully!');
+      return this.authService.loginUser(
+        this.card.phone
+        )
+      .subscribe( 
+        data => {
+              this.authService.setUser(data.user);
+              const token = data.id;
+              this.authService.setToken(token);
+              this._uw.name=data.name;
+              this.router.navigate(['/mytixs']);
+              this.isError = false;
+        },
+         error => this.onIsError()
+        ); 
+  }    
+    
+  onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
+  }
+
 
 
   reset():void{
@@ -32,5 +91,6 @@ ngOnInit() {
        this.router.navigate(['/new-member']);
 
   }
+
 
 }
