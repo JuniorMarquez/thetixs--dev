@@ -65,18 +65,21 @@ ngOnInit() {
   }
 
   sendProfile(){
+    
       this.submitted = true;
       if (this.ngFormAffiliate.invalid) {
+     this._uw.errorFormAffiliate=true;
       return;
         } 
+        this._uw.errorFormAffiliate=false;
       this.user = this.authService.getCurrentUser();
       let val=(this.user.id).toString();
       this.card = this.ngFormAffiliate.value;
       this.card.userd="a"+val;
       this.card.type="affiliateType";
-      return this.dataApiService.saveCard(this.card)
+      this.dataApiService.saveCard(this.card)
         .subscribe(
-          card => this.router.navigate(['/mytixs'])
+          // card => this.router.navigate(['/mytixs'])
         );
   }    
     
@@ -85,6 +88,9 @@ ngOnInit() {
     setTimeout(() => {
       this.isError = false;
     }, 4000);
+  }
+  finish(){
+    this.router.navigate(['/mytixs'])
   }
 
   reset():void{

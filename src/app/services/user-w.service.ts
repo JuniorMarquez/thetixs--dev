@@ -18,6 +18,8 @@ isLogged:boolean=false;
 	bandera:string;
 	selectorB:boolean;
 	selectorA:boolean;
+	errorFormAffiliate:boolean;
+	errorFormPartner:boolean;
 	cardsResult:any[]=[];
 	card:any={};
   constructor() { }
