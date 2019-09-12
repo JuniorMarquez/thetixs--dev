@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         )
     	.subscribe( 
     		data => {
-          console.log(data);
+          //console.log(data);
             	this.authService.setUser(data.user);
             	const token = data.id;
               this.authService.setToken(token);

@@ -34,6 +34,9 @@ submitted = false;
 
   public isError = false;
   public isLogged =false;
+  public partnerType = false;
+  public affiliateType = false;
+  public adminType = false;
 
   ngOnInit() {
   this.ngFormSignup = this.formBuilder.group({
@@ -43,6 +46,7 @@ submitted = false;
     });
       this.user = this.authService.getCurrentUser();
       this.onCheckUser();
+      //this.onCheckUserType();
      // this.router.navigate(['/coming']);
   }
 
@@ -75,7 +79,22 @@ submitted = false;
   onLogout():void{
     this.authService.logoutUser();
     location.reload();
+    this._uw.partner=false;
+    this._uw.affiliate=false;
+    this._uw.admin=false;
   }
+    onCheckUserType(){
+      if (this._uw.type="affiliateType"){
+        this._uw.affiliate=true;
+      }
+      if (this._uw.type="partnerType"){
+        this._uw.partner=true;
+      }
+      if (this._uw.type="adminType"){
+        this._uw.admin=true;
+      }
+    }
+
     onCheckUser(): void {
     if (this.authService.getCurrentUser() === null) {
       this.isLogged = false;
@@ -89,3 +108,4 @@ submitted = false;
   }
 
 }
+

@@ -73,6 +73,7 @@ ngOnInit() {
       let val=(this.user.id).toString();
       this.card = this.ngFormAffiliate.value;
       this.card.userd="a"+val;
+      this.card.type="affiliateType";
       return this.dataApiService.saveCard(this.card)
         .subscribe(
           card => this.router.navigate(['/mytixs'])

@@ -48,6 +48,23 @@ export class MyTixsComponent implements OnInit {
         }else{
         console.log("si"); 
         this._uw.bandera=(res[0].bander);
+        //console.log(res[0].type);
+        if (res[0].type=="affiliateType"){
+          this._uw.affiliate=true;
+          console.log("el uuario es un affiliate");
+        }
+        if (res[0].type=="partnerType"){
+          this._uw.partner=true;
+          
+          console.log("el uuario es un partner");
+        }
+        if (res[0].type=="adminType"){
+          this._uw.admin=true;
+          console.log("el uuario es un adminitrador");
+        }        
+
+
+        this._uw.type=res[0].type;
         //  console.log("bandera dentro", this._uw.bandera);              
         }
       });
