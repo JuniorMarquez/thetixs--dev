@@ -90,6 +90,7 @@ ngOnInit() {
     }, 4000);
   }
   finish(){
+    this.sendProfile();
     this.router.navigate(['/mytixs'])
   }
 

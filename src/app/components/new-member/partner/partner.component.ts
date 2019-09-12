@@ -87,6 +87,7 @@ export class PartnerComponent implements OnInit {
     }, 4000);
   }
  finish(){
+  this.sendProfile();
     this.router.navigate(['/mytixs'])
   }
   reset():void{

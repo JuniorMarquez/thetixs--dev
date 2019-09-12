@@ -20,6 +20,7 @@ isLogged:boolean=false;
 	selectorA:boolean;
 	errorFormAffiliate:boolean;
 	errorFormPartner:boolean;
+	errorFormAddtixs:boolean;
 	cardsResult:any[]=[];
 	card:any={};
   constructor() { }

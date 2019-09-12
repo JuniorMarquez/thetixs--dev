@@ -14,9 +14,8 @@ export class TixDetailComponent implements OnInit {
 
   constructor(public scrollTopService:ScrollTopService, private dataApi: DataApiService,private route:ActivatedRoute) { }
 public tix:TixInterface= {
-	titulo:'',
-	descripcion:'',
-	precio:'',
+	category:'',
+	description:'',
 	productName:'',
 	notes:'',
 	images: ['', '']
