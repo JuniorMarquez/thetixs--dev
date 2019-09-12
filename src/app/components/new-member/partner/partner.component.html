@@ -105,13 +105,13 @@
 														</div> -->
 												</div>
 											    <button type="button" awPreviousStep>previous</button>
-											    <button type="button" awNextStep>next</button>
+											    <button type="button"  type="submitt"  awNextStep>next</button>
 											  </aw-wizard-step>
 											 
 											  <aw-wizard-step stepTitle="Finish">
 											    <div class="row">
 
-											    	<div class="col-md-12 text-center">
+											    	<div class="col-md-12 text-center" *ngIf="this._uw.errorFormPartner">
 														<i class="ti-thumb-down cl-danger font-50"></i>
 														<h3 class="cl-danger">Error!</h3>
 														<div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
@@ -140,14 +140,14 @@
 													</div>
 
 
-													<div class="col-md-12 text-center">
+													<div class="col-md-12 text-center" *ngIf="!this._uw.errorFormPartner">
 														<i class="ti-thumb-up cl-success font-50"></i>
 														<h3 class="cl-success">Congratulations!</h3>
 														<p><strong></strong> The registration has been submitted successfully</p>
 													</div>
 												</div>
 											    <button type="button" awPreviousStep>Previous</button>
-											    <button type="button" type="submitt">Finish</button>
+											    <button type="button" type="submitt" (click)="finish()">Finish</button>
 											  </aw-wizard-step>
 										</aw-wizard>
 									</form>
