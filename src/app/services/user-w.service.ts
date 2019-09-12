@@ -7,9 +7,11 @@ export class UserWService {
 info:any={};
 isLogged:boolean=false;
 	userW:any[]=[];
+	user:any={};
 	name:string;
 	idCard:string;
 	type:string;
+	userd:string;
 	bandera:string;
 	selectorB:boolean;
 	selectorA:boolean;

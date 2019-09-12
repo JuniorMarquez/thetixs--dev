@@ -31,9 +31,9 @@ const app_routes: Routes = [
 	{path:'tix-detail/:id',component:TixDetailComponent},
 	{path:'signup',component:SignupComponent},
 	{path:'coming',component:ComingComponent},
-	{path:'new-member',component:NewMemberComponent},
-	{path:'new-member/partner',component:PartnerComponent},
-	{path:'new-member/affiliate',component:AffiliateComponent},
+	{path:'new-member',component:NewMemberComponent, canActivate:[AuthGuard]},
+	{path:'new-member/partner',component:PartnerComponent, canActivate:[AuthGuard]},
+	{path:'new-member/affiliate',component:AffiliateComponent, canActivate:[AuthGuard]},
 	{path:'**',pathMatch:'full',redirectTo:''}
 	];
 	export const app_routing = RouterModule.forRoot(app_routes);

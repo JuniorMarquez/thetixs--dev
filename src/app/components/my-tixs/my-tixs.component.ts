@@ -19,6 +19,7 @@ export class MyTixsComponent implements OnInit {
   constructor(private router: Router, private location: Location, public dataApi: DataApiService, public _uw:UserWService,private authService: AuthService) { }
   
   public user : UserInterface ={
+    id:"",
     name:"",
     email:"",
     password:""
@@ -34,6 +35,7 @@ export class MyTixsComponent implements OnInit {
   ngOnInit() {
 	  	this.user = this.authService.getCurrentUser();
  	 	// console.log(this.user);
+    this._uw.userd=this.user.id;
     this._uw.name=this.user.name;
  	 	this.onCheckUser();
     let val=(this.user.id).toString();

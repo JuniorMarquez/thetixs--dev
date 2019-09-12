@@ -21,9 +21,9 @@ selectorType:boolean=true;
   constructor(public _uw:UserWService, private location: Location, private router: Router) { }
       
   ngOnInit() {
-    if (this._uw.selectorA===true){
+   // if (this._uw.selectorA===true){
        // location.reload();
-      }
+     // }
   }
 
  setPartner():void{

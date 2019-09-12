@@ -9,3 +9,7 @@ button,html input[type=button],input[type=reset],input[type=submit] {
     padding: 10px 5px;
     margin: 10px 5px
 }
+
+.errorLabel{
+	color: red;
+}

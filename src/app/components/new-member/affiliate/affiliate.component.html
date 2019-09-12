@@ -33,50 +33,128 @@
 								 
 
 								<div class="tr-single-body"  >
-									<aw-wizard>
-										<aw-wizard-step stepTitle="Personal">
-											<div class="row" > 
-												<div class="col-md-4 col-xs-12">
-													<label>Your Phone</label>
-													<input type="text" class="form-control" placeholder="960 234 34 56" />
-												</div>
-											</div>								
-											<button type="button" awNextStep>next</button>
-										  </aw-wizard-step>
+									<form  class="form"[formGroup]="ngFormAffiliate" (ngSubmit) ="sendProfile()" >
+										<aw-wizard>
+											<aw-wizard-step stepTitle="Personal">
+												<div class="row" > 
+													<div class="col-md-4 col-xs-12">
+														<input type="text" name="cardId" id="cardId" >
+															<div class="form-group">
+																<label for="phone">Your phone number</label>
+																<input type="text" class="form-control" id="phone" formControlName="phone" placeholder="960 234 34 56" [(ngModel)]="card.phone"
+																[ngClass]="{ 'is-invalid': submitted && fval.phone.errors }"
+																required>
+																<div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+																	<div *ngIf="fval.phone.errors.required" class="errorLabel">
+																	* The phone is required and must be a valid phone number
+																	</div>
 
-										  <aw-wizard-step stepTitle="Company" awOptionalStep>
-										      <div class="row" > 
-												<div class="col-xs-12">
-													<label>Company address</label>
-													<textarea class="form-control height-80" placeholder="Company address"></textarea>
+																</div>
+															</div>
+														</div>
+														
+												</div>								
+												<button type="button" awNextStep>next</button>
+											  </aw-wizard-step>
+
+											  <aw-wizard-step stepTitle="Company" awOptionalStep>
+											      <div class="row" > 
+													<div class="col-md-12 col-xs-12">
+															<div class="form-group">
+																<label for="companyAddress">Company address</label>
+
+																<textarea class="form-control height-80" placeholder="companyAddress" id="companyAddress" formControlName="companyAddress" placeholder="Company address" [(ngModel)]="card.companyAddress"
+																[ngClass]="{ 'is-invalid': submitted && fval.companyAddress.errors }"
+																required></textarea>
+																<div *ngIf="submitted && fval.companyAddress.errors" class="invalid-feedback">
+																	<div *ngIf="fval.companyAddress.errors.required" class="errorLabel">
+																	* The Company address is required 
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4 col-xs-12">
+															<div class="form-group">
+																<label for="country">Country </label>
+																<input type="text" class="form-control" id="country" formControlName="country" placeholder="Country" [(ngModel)]="card.country"
+																[ngClass]="{ 'is-invalid': submitted && fval.country.errors }"
+																required>
+																<div *ngIf="submitted && fval.country.errors" class="invalid-feedback">
+																	<div *ngIf="fval.country.errors.required" class="errorLabel">
+																	* The country is required
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4 col-xs-12">
+															<div class="form-group">
+																<label for="city">City </label>
+																<input type="text" class="form-control" id="city" formControlName="city" placeholder="City" [(ngModel)]="card.city"
+																[ngClass]="{ 'is-invalid': submitted && fval.city.errors }"
+																required>
+																<div *ngIf="submitted && fval.city.errors" class="invalid-feedback">
+																	<div *ngIf="fval.city.errors.required" class="errorLabel">
+																	* The city is required
+																	</div>
+
+																</div>
+															</div>
+														</div>
 												</div>
-												<div class="col-md-12 col-xs-12">
-													<label>Country</label>
-													<input type="text" class="form-control" placeholder="Country" />
+											    <button type="button" awPreviousStep>previous</button>
+											    <button type="button" awNextStep>next</button>
+											  </aw-wizard-step>
+											 
+											  <aw-wizard-step stepTitle="Finish">
+											    <div class="row">
+
+											    	<div class="col-md-12 text-center">
+														<i class="ti-thumb-down cl-danger font-50"></i>
+														<h3 class="cl-danger">Error!</h3>
+														<div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+																<div *ngIf="fval.phone.errors.required" class="errorLabel">
+																* The phone is required and must be a valid phone number
+																</div>
+
+															</div>
+
+															<div *ngIf="submitted && fval.companyAddress.errors" class="invalid-feedback">
+																<div *ngIf="fval.companyAddress.errors.required" class="errorLabel">
+																* The company address is required 
+																</div>
+
+															</div>
+
+															<div *ngIf="submitted && fval.country.errors" class="invalid-feedback">
+																<div *ngIf="fval.country.errors.required" class="errorLabel">
+																* The country is required 
+																</div>
+
+															</div>
+															<div *ngIf="submitted && fval.city.errors" class="invalid-feedback">
+																<div *ngIf="fval.city.errors.required" class="errorLabel">
+																* The city is required 
+																</div>
+
+															</div>
+
+
+													</div>
+
+
+													<div class="col-md-12 text-center">
+														<i class="ti-thumb-up cl-success font-50"></i>
+														<h3 class="cl-success">Congratulations!</h3>
+														<p><strong></strong> The registration has been submitted successfully</p>
+													</div>
 												</div>
-												<div class="col-xs-12">
-													<label>City</label>
-													<textarea class="form-control height-80" placeholder="Company city"></textarea>
-												</div> 
-											</div>
-										    <button type="button" awPreviousStep>previous</button>
-										    <button type="button" awNextStep>next</button>
-										  </aw-wizard-step>
-										 
-										  <aw-wizard-step stepTitle="Finish">
-										    <div class="row">
-												<div class="col-md-12 text-center">
-													<i class="ti-thumb-up cl-success font-50"></i>
-													<h3 class="cl-success">Congratulations!</h3>
-													<p><strong></strong> The registration has been submitted successfully</p>
-												</div>
-											</div>
-										    <button type="button" awPreviousStep>Previous</button>
-										    <button type="button" >Finish</button>
-										  </aw-wizard-step>
-									</aw-wizard>
-							
- -->
+											    <button type="button" awPreviousStep>Previous</button>
+											    <button type="button" type="submitt">Finish</button>
+											  </aw-wizard-step>
+										</aw-wizard>
+									</form>
 								</div>
 					
 							</div>
