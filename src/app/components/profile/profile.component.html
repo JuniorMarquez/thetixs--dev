@@ -26,13 +26,13 @@
 										</div>
 										<!-- /col-md-4 -->
 										<!-- col-md-4 -->
-										<div class="col-md-4">
+										<div class="col-md-4" *ngIf="this._uw.affiliate">
 											<p>
 												<label><strong>Phone: </strong> {{this._uw.card.phone}}</label>
 												<!-- <input type="text" id="phone" class="form-control" value="{{this._uw.card.phone}}" name="phone"> -->
 											</p>
 											<p>
-												<label><strong>Company address: </strong> {{this._uw.companyAddress}}</label>
+												<label><strong>Company address: </strong> {{this._uw.card.companyAddress}}</label>
 												<!-- <input type="text" id="phone" class="form-control" value="{{this._uw.card.phone}}" name="phone"> -->
 											</p>
 											<p>
@@ -45,34 +45,22 @@
 											</p>
 
 
-										<!-- 	<p>
-												<label>Last Name</label>
-												<input type="text" id="secondname" class="form-control" value="Preet" name="firstname">
-											</p>
-
+									
+										</div>
+										<div class="col-md-4" *ngIf="this._uw.partner">
 											<p>
-												<label>Email</label>
-												<input type="text" id="useremail" class="form-control" value="danielraj@gmail.com" name="useremail">
+												<label><strong>Phone: </strong> {{this._uw.card.phone}}</label>
+												<!-- <input type="text" id="phone" class="form-control" value="{{this._uw.card.phone}}" name="phone"> -->
 											</p>
-											
 											<p>
-												<label>About Me</label>
-												<textarea id="about_me" class="form-control" name="about_me"></textarea>
+												<label><strong>Company name: </strong> {{this._uw.card.companyName}}</label>
+												<!-- <input type="text" id="phone" class="form-control" value="{{this._uw.card.phone}}" name="phone"> -->
 											</p>
-											   
 											<p>
-											<label>I live in</label>
-											   <input type="text" id="live_in" class="form-control" value="" name="live_in">
+												<label><strong>Address: </strong> {{this._uw.card.address}}</label>
+												<!-- <input type="text" id="phone" class="form-control" value="{{this._uw.card.phone}}" name="phone"> -->
 											</p>
-											   
-											<p>
-												<label>I speak</label>
-												<input type="text" id="i_speak" class="form-control" value="" name="i_speak">
-											</p>
-											 <p>
-												<label>Payment Info/Hidden Field</label>
-												<textarea id="payment_info" class="form-control" name="payment_info" cols="70" rows="3"></textarea>
-											</p> -->
+																			
 										</div>
 										<!-- /col-md-4 -->
 										
@@ -82,35 +70,7 @@
 												<label>Phone</label>
 												<input type="text" id="userphone" class="form-control" value="" name="userphone">
 											</p>
-											<p>
-												<label>city</label>
-												<input type="text" id="usermobile" class="form-control" value="" name="usermobile">
-											</p>
-
-											<p>
-												<label>Skype</label>
-												<input type="text" id="userskype" class="form-control" value="" name="userskype">
-											</p>
-											
-											<p>
-												<label>Facebook Url</label>
-												<input type="text" id="userfacebook" class="form-control" value="" name="userfacebook">
-											</p>
-
-											 <p>
-												<label>Twitter Url</label>
-												<input type="text" id="usertwitter" class="form-control" value="" name="usertwitter">
-											</p>
-
-											 <p>
-												<label>Linkedin Url</label>
-												<input type="text" id="userlinkedin" class="form-control" value="" name="userlinkedin">
-											</p>
-
-											 <p>
-												<label>Pinterest Url</label>
-												<input type="text" id="userpinterest" class="form-control" height="100" value="" name="userpinterest">
-											</p> -->
+											-->
 										</div>
 										<!-- /col-md-4 -->
 										
@@ -124,3 +84,4 @@
 				</div>
 			</div>
 		</section>
+		 <app-pre-footer></app-pre-footer>

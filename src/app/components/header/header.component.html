@@ -47,7 +47,7 @@
             <li class="dropdown dash-link"><a  class="dropdown-toggle"><img src="assets/img/user-3.jpg" class="img-responsive avatar" alt="" />Hi, {{this._uw.name}}</a> 
               <ul class="dropdown-menu left-nav">
                 <li><a routerLink="mytixs" >My Tixs</a></li>
-                <li><a routerLink="profile">My Profile</a></li>
+                <li *ngIf="this._uw.affiliate || this._uw.partner"><a routerLink="profile">My Profile</a></li>
                 <li><a (click)="onLogout()">Sign out</a></li>
               </ul>
             </li>
