@@ -16,10 +16,15 @@ import { Location } from '@angular/common';
 })
 export class MyTixsComponent implements OnInit {
 
-  constructor(private router: Router, private location: Location, public dataApi: DataApiService, public _uw:UserWService,private authService: AuthService) { }
+  constructor(
+    private router: Router, 
+    private location: Location, 
+    private authService: AuthService,
+    public dataApi: DataApiService, 
+    public _uw:UserWService
+    ) { }
   
   public user : UserInterface ={
-    id:"",
     name:"",
     email:"",
     password:""
@@ -29,26 +34,21 @@ export class MyTixsComponent implements OnInit {
   public isLogged =false;
 
   cardArray: any[]=[];
-//  productsFil:any[]=[];
-  
 
   ngOnInit() {
-	  	this.user = this.authService.getCurrentUser();
+	  this.user = this.authService.getCurrentUser();
  	 	// console.log(this.user);
-    this._uw.userd=this.user.id;
     this._uw.name=this.user.name;
- 	 	this.onCheckUser();
+ 	 	this.onCheckUser();     //--header update
     let val=(this.user.id).toString();
-       this.dataApi.getCards(val).subscribe((res:any) => {
+    this.dataApi.getCards(val).subscribe((res:any) => {
       if (res[0] === undefined){
         console.log("no");
-//        this.dataApi.saveCard();
-this.router.navigate(['/new-member']);
+        this.router.navigate(['/new-member']);
         }else{
-          console.log("si"); 
-          this._uw.bandera=(res[0].bander);
-        //  console.log("bandera dentro", this._uw.bandera);
-              
+        console.log("si"); 
+        this._uw.bandera=(res[0].bander);
+        //  console.log("bandera dentro", this._uw.bandera);              
         }
       });
     //console.log("bandera fuera: ", this._uw.bandera);

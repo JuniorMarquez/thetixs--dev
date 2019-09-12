@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-//import { UserInterface } from '../../../models/user-interface'; 
+import { UserInterface } from '../../../models/user-interface'; 
 import { CardInterface } from '../../../models/card-interface';  
 import { UserWService } from '../../../services/user-w.service';
 import { DataApiService } from '../../../services/data-api.service';
@@ -21,7 +21,7 @@ declare var NgFormAffiliate:any;
 })
 export class AffiliateComponent implements OnInit {
   
- ngFormAffiliate: FormGroup;
+  ngFormAffiliate: FormGroup;
   submitted = false;
 
   constructor(
@@ -30,9 +30,14 @@ export class AffiliateComponent implements OnInit {
   private authService: AuthService, 
   private location: Location,
   private router: Router,
- // public userInterface: UserInterface,
   private formBuilder: FormBuilder
     ) { }
+
+  public user : UserInterface ={
+    name:"",
+    email:"",
+    password:""
+  };
 
   public card : CardInterface ={
       userd:"",
@@ -60,18 +65,18 @@ ngOnInit() {
   }
 
   sendProfile(){
-     this.submitted = true;
+      this.submitted = true;
       if (this.ngFormAffiliate.invalid) {
       return;
         } 
-     if (this.ngFormAffiliate.value.cardId == null){
-      this.ngFormAffiliate.value.userd='a'+this._uw.userd;
-      return this.dataApiService.saveCard(this.ngFormAffiliate.value)
-        .subscribe(card => this.router.navigate(['/mytixs']));
-      } else{
-        //UPDATE
-        console.log('update card');
-      }
+      this.user = this.authService.getCurrentUser();
+      let val=(this.user.id).toString();
+      this.card = this.ngFormAffiliate.value;
+      this.card.userd="a"+val;
+      return this.dataApiService.saveCard(this.card)
+        .subscribe(
+          card => this.router.navigate(['/mytixs'])
+        );
   }    
     
   onIsError(): void {
