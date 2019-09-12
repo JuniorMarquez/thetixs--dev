@@ -65,7 +65,7 @@ ngOnInit() {
       return;
         } 
      if (this.ngFormAffiliate.value.cardId == null){
-      this.ngFormAffiliate.value.userd="a"+this._uw.userd;
+      this.ngFormAffiliate.value.userd='a'+this._uw.userd;
       return this.dataApiService.saveCard(this.ngFormAffiliate.value)
         .subscribe(card => this.router.navigate(['/mytixs']));
       } else{
