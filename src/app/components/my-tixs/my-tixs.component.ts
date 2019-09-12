@@ -46,7 +46,8 @@ export class MyTixsComponent implements OnInit {
         console.log("no");
         this.router.navigate(['/new-member']);
         }else{
-        console.log("si"); 
+        console.log("si");
+        this._uw.card= (res[0]);
         this._uw.bandera=(res[0].bander);
         //console.log(res[0].type);
         if (res[0].type=="affiliateType"){

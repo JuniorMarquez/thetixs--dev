@@ -12,3 +12,4 @@ export { ComingComponent } from "./coming/coming.component";
 export { AlltixsComponent } from "./alltixs/alltixs.component";
 export { PartnerComponent } from "./new-member/partner/partner.component";
 export { AffiliateComponent } from "./new-member/affiliate/affiliate.component";
+export { ProfileComponent } from "./profile/profile.component";

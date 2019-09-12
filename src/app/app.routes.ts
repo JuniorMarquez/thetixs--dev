@@ -13,7 +13,8 @@ import {
 	AlltixsComponent,
 	PartnerComponent,
 	AffiliateComponent,
-	NewMemberComponent
+	NewMemberComponent,
+	ProfileComponent
 
 	}from "./components/index.paginas";
 
@@ -34,6 +35,7 @@ const app_routes: Routes = [
 	{path:'new-member',component:NewMemberComponent, canActivate:[AuthGuard]},
 	{path:'new-member/partner',component:PartnerComponent, canActivate:[AuthGuard]},
 	{path:'new-member/affiliate',component:AffiliateComponent, canActivate:[AuthGuard]},
+	{path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},
 	{path:'**',pathMatch:'full',redirectTo:''}
 	];
 	export const app_routing = RouterModule.forRoot(app_routes);

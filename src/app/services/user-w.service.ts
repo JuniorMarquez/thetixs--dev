@@ -19,6 +19,7 @@ isLogged:boolean=false;
 	selectorB:boolean;
 	selectorA:boolean;
 	cardsResult:any[]=[];
+	card:any={};
   constructor() { }
 }
 
