@@ -45,6 +45,10 @@ export class DataApiService {
 		const url_api='http://localhost:3000/api/product?filter[where][status]=pending';
 		return (this.tixs = this.http.get(url_api));
 	}
+	getUsersPending(){
+		const url_api='http://localhost:3000/api/card?filter[where][status]=pending';
+		return (this.cards = this.http.get(url_api));
+	}
 	saveTix(tix :TixInterface){
 		let token = this.authService.getToken();
 		const url_api='http://localhost:3000/api/product?access_token${token}';

@@ -44,7 +44,9 @@ export class PartnerComponent implements OnInit {
       type:"",
       phone:"",
       companyName:"",
-      address:""
+      address:"",
+      status:"",
+      name:""
     };
 
   public isError = false;
@@ -74,6 +76,8 @@ export class PartnerComponent implements OnInit {
       this.card = this.ngFormPartner.value;
       this.card.userd="a"+val;
       this.card.type="partnerType";
+      this.card.status="pending";
+      this.card.name=this.user.name;
       return this.dataApiService.saveCard(this.card)
         .subscribe(
          // card => this.router.navigate(['/mytixs'])
@@ -87,7 +91,10 @@ export class PartnerComponent implements OnInit {
     }, 4000);
   }
  finish(){
-  this.sendProfile();
+  if (!this._uw.errorFormPartner){
+    this.sendProfile();
+  }
+  
     this.router.navigate(['/mytixs'])
   }
   reset():void{

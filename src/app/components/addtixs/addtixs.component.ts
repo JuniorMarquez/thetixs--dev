@@ -101,7 +101,9 @@ public tix : TixInterface ={
     }, 4000);
   }
  finish(){
-  this.sendTix();
+    if (!this._uw.errorFormPartner){
+      this.sendTix();
+    }
     this.router.navigate(['/mytixs'])
   }
   reset():void{

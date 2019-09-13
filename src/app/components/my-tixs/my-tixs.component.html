@@ -118,95 +118,35 @@
 									
 									<!-- row -->
 									<div class="row">
-										<div class="col-md-4 col-sm-12">
+										<div class="col-md-4 col-sm-12" *ngIf="this._uw.partner">
 											<div class="tr-single-box">
 												<div class="tr-single-header">
 													<h5>Recen Booking</h5>
 												</div>
 												<div class="ground-list ground-list-hove">
-													<div class="ground ground-single-list">
-														<a href="dashboard.html#">
-															<img class="ground-avatar" src="assets/img/user-1.jpg" alt="...">
-															<span class="profile-status bg-online pull-right"></span>
-														</a>
 
-														<div class="ground-content">
-															<h6><a href="dashboard.html#">Maryam Amiri</a></h6>
-															<small class="text-fade">Co-Founder</small>
-														</div>
 
-														<div class="ground-right">
-															<span class="small">Online</span>
-														</div>
-													</div>
-													
-													<div class="ground ground-single-list">
-														<a href="dashboard.html#">
-															<img class="ground-avatar" src="assets/img/user-2.jpg" alt="...">
-															<span class="profile-status bg-offline pull-right"></span>
-														</a>
-
-														<div class="ground-content">
-															<h6><a href="dashboard.html#">Maryam Amiri</a></h6>
-															<small class="text-fade">Co-Founder</small>
-														</div>
-
-														<div class="ground-right">
-															<span class="small">10 Min Ago</span>
-														</div>
-													</div>
-													
-													<div class="ground ground-single-list">
+													<div class="ground ground-single-list" *ngFor="let card of cards">
 														<a href="dashboard.html#">
 															<img class="ground-avatar" src="assets/img/user-3.jpg" alt="...">
-															<span class="profile-status bg-working pull-right"></span>
-														</a>
-
-														<div class="ground-content">
-															<h6><a href="dashboard.html#">Maryam Amiri</a></h6>
-															<small class="text-fade">Co-Founder</small>
-														</div>
-
-														<div class="ground-right">
-															<span class="small">20 Min Ago</span>
-														</div>
-													</div>
-													
-													<div class="ground ground-single-list">
-														<a href="dashboard.html#">
-															<img class="ground-avatar" src="assets/img/user-4.jpg" alt="...">
-															<span class="profile-status bg-busy pull-right"></span>
-														</a>
-
-														<div class="ground-content">
-															<h6><a href="dashboard.html#">Maryam Amiri</a></h6>
-															<small class="text-fade">Co-Founder</small>
-														</div>
-
-														<div class="ground-right">
-															<span class="small">18 Min Ago</span>
-														</div>
-													</div>
-													
-													<div class="ground ground-single-list">
-														<a href="dashboard.html#">
-															<img class="ground-avatar" src="assets/img/user-5.jpg" alt="...">
 															<span class="profile-status bg-online pull-right"></span>
 														</a>
 
 														<div class="ground-content">
-															<h6><a href="dashboard.html#">Maryam Amiri</a></h6>
-															<small class="text-fade">Co-Founder</small>
+															<h6><a href="">{{card.name}}</a></h6>
+															<small class="text-fade">partner</small>
 														</div>
 
 														<div class="ground-right">
-															<span class="small">Online</span>
+															<span class="small"></span>
 														</div>
 													</div>
+													
+													
 												</div>
 											</div>
 										</div>
-										<div class="col-md-8 col-sm-12">
+										<!-- <div class="col-md-8 col-sm-12">
 											<div class="tr-single-box">
 												<div class="tr-single-header">
 													<h4 class="mb-0">Extra Area Chart</h4>
@@ -271,7 +211,7 @@
 													</div>
 											</div>
 										</div>
-										
+										 -->
 										
 									</div>
 									<!-- /row -->

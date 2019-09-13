@@ -21,6 +21,7 @@ isLogged:boolean=false;
 	errorFormAffiliate:boolean;
 	errorFormPartner:boolean;
 	errorFormAddtixs:boolean;
+	usersPending:boolean;
 	cardsResult:any[]=[];
 	card:any={};
   constructor() { }

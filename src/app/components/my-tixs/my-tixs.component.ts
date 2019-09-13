@@ -23,6 +23,8 @@ export class MyTixsComponent implements OnInit {
     public dataApi: DataApiService, 
     public _uw:UserWService
     ) { }
+
+  
   
   public user : UserInterface ={
     name:"",
@@ -36,6 +38,7 @@ export class MyTixsComponent implements OnInit {
   cardArray: any[]=[];
 
   ngOnInit() {
+    this._uw.usersPending=false;
 	  this.user = this.authService.getCurrentUser();
  	 	// console.log(this.user);
     this._uw.name=this.user.name;
@@ -61,9 +64,10 @@ export class MyTixsComponent implements OnInit {
         }
         if (res[0].type=="adminType"){
           this._uw.admin=true;
+          this.getUsersPending();
           console.log("el uuario es un adminitrador");
         }        
-
+        
 
         this._uw.type=res[0].type;
         //  console.log("bandera dentro", this._uw.bandera);              
@@ -72,6 +76,26 @@ export class MyTixsComponent implements OnInit {
     //console.log("bandera fuera: ", this._uw.bandera);
   }
 
+  getUsersPending(){
+  this.dataApi.getUsersPending().subscribe((res:any) => {
+      if (res[0] === undefined){
+        console.log("no");
+       this._uw.usersPending=false;
+       }else{
+        this._uw.usersPending=true;
+        this.cards=res;
+     //   console.log("si");
+        //  console.log("bandera dentro", this._uw.bandera);              
+        }
+     });
+   }
+
+// getUsersPending(){
+  //  this.dataApi
+    //    .getUsersPending()
+      //  .subscribe((cards CardInterface) => {this.card=card;this._uw.usersPending=true;});
+   // 
+ // }
 
   getCards(card_id: string){
     this.dataApi.getCards(card_id);

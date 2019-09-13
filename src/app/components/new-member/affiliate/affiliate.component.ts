@@ -45,7 +45,9 @@ export class AffiliateComponent implements OnInit {
       phone:"",
       companyAddress:"",
       country:"",
-      city:""
+      city:"",
+      status:"",
+      name:""
     };
 
   public isError = false;
@@ -77,6 +79,8 @@ ngOnInit() {
       this.card = this.ngFormAffiliate.value;
       this.card.userd="a"+val;
       this.card.type="affiliateType";
+      this.card.status="pending";
+      this.card.name=this.user.name;
       this.dataApiService.saveCard(this.card)
         .subscribe(
           // card => this.router.navigate(['/mytixs'])
@@ -90,7 +94,9 @@ ngOnInit() {
     }, 4000);
   }
   finish(){
+      if (!this._uw.errorFormAffiliate){
     this.sendProfile();
+  }
     this.router.navigate(['/mytixs'])
   }
 
