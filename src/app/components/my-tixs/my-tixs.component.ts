@@ -55,17 +55,18 @@ export class MyTixsComponent implements OnInit {
         //console.log(res[0].type);
         if (res[0].type=="affiliateType"){
           this._uw.affiliate=true;
-          console.log("el uuario es un affiliate");
+ //         console.log("el uuario es un affiliate");
+          this.router.navigate(['/booking']);
         }
         if (res[0].type=="partnerType"){
           this._uw.partner=true;
-          
-          console.log("el uuario es un partner");
+
+   //       console.log("el uuario es un partner");
         }
         if (res[0].type=="adminType"){
           this._uw.admin=true;
           this.getUsersPending();
-          console.log("el uuario es un adminitrador");
+     //     console.log("el uuario es un adminitrador");
         }        
         
 

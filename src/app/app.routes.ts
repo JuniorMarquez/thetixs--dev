@@ -15,8 +15,10 @@ import {
 	AffiliateComponent,
 	NewMemberComponent,
 	ProfileComponent,
-	AddtixsComponent
-
+	AddtixsComponent,
+	BookingComponent,
+	AlltixslistComponent,
+	AlltixsleftComponent
 	}from "./components/index.paginas";
 
 	import { AuthGuard } from './guards/auth.guard';
@@ -38,6 +40,9 @@ const app_routes: Routes = [
 	{path:'new-member/affiliate',component:AffiliateComponent, canActivate:[AuthGuard]},
 	{path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},
 	{path:'addtixs',component:AddtixsComponent, canActivate:[AuthGuard]},
+	{path:'booking',component:BookingComponent, canActivate:[AuthGuard]},	
+	{path:'alltixslist',component:AlltixslistComponent},
+	{path:'alltixsleft',component:AlltixsleftComponent},	
 	{path:'**',pathMatch:'full',redirectTo:''}
 	];
 	export const app_routing = RouterModule.forRoot(app_routes);

@@ -14,7 +14,10 @@ import {
 	PartnerComponent,
 	AffiliateComponent,
 	NewMemberComponent,
-	ProfileComponent
+	ProfileComponent,
+	AlltixslistComponent,
+	AlltixsleftComponent,
+	Booking
 
 	}from "./components/index.paginas";
 
