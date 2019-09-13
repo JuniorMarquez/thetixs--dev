@@ -91,7 +91,7 @@ export class PartnerComponent implements OnInit {
     }, 4000);
   }
  finish(){
-  if (!this._uw.errorFormPartner){
+  if (this._uw.errorFormPartner){
     this.sendProfile();
   }
   

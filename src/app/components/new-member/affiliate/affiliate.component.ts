@@ -94,7 +94,7 @@ ngOnInit() {
     }, 4000);
   }
   finish(){
-      if (!this._uw.errorFormAffiliate){
+      if (this._uw.errorFormAffiliate){
     this.sendProfile();
   }
     this.router.navigate(['/mytixs'])
