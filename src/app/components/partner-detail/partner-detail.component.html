@@ -1,4 +1,4 @@
-	<section class=" gray-bg">
+	<section class=" ">
 			<div class="container">
 				<div class="row">
 				
@@ -22,7 +22,7 @@
 							</div>
 						</div>
 
-						
+
 					<div class="col-md-8 col-sm-8">
 								
 						<!-- Guide Detail -->
@@ -34,7 +34,8 @@
 								<div class="tr-single-body">
 								
 									<div class="guider-box-detail">
-										<div class="guider-box-thumb">
+										<div class="guider-box-thumb" style="
+										background-color: white;">
 											<img src="assets/img/partner.jpg " class="img-responsive img-circle" alt="" />
 										</div>
 										<div class="guider-box-detail-content">
@@ -44,8 +45,22 @@
 												 <!-- <span class="guider-status bg-success"> Active </span> -->
 											</p>
 											<!-- <a href="guide-detail.html#" class="btn btn-info"></a> -->
-											<a *ngIf="card.status == 'pending'"  class="btn btn-default">Refuse</a>
-											<a *ngIf="card.status == 'pending'"  class="btn btn-success">Accept</a>
+											<!-- <a *ngIf="card.status == 'pending'"  class="btn btn-default">Refuse</a>
+											<a *ngIf="card.status == 'pending'"  class="btn btn-success">Accept</a> -->
+
+											<div class="icon-box-icon-block">
+												<a >
+													<div *ngIf="card.status == 'pending'" routerLink="/partner-detail/{{card.id}}" class="icon-box-round">
+														<i   class="ti-timer"></i>
+													</div>
+													<div  class="icon-box-round bg-danger" style="color: white;">
+														<i   class="ti-trash"></i>
+													</div>
+													<div *ngIf="card.status == 'pending'" class="icon-box-round bg-success" style="color: white;">
+														<i   class="ti-check"></i>
+													</div>
+												</a>
+											</div>	
 										</div>
 										<div class="pr-table">
 											<ul>
