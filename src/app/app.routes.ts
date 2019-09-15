@@ -40,7 +40,7 @@ const app_routes: Routes = [
 	{path:'new-member/affiliate',component:AffiliateComponent, canActivate:[AuthGuard]},
 	{path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},
 	{path:'addtixs',component:AddtixsComponent, canActivate:[AuthGuard]},
-	{path:'booking',component:BookingComponent, canActivate:[AuthGuard]},	
+	{path:'booking',component:BookingComponent, canActivate:[AuthGuard]},
 	{path:'alltixslist',component:AlltixslistComponent},
 	{path:'alltixsleft',component:AlltixsleftComponent},	
 	{path:'**',pathMatch:'full',redirectTo:''}

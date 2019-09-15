@@ -31,7 +31,7 @@ export class MyTixsComponent implements OnInit {
     email:"",
     password:""
   };
-  private cards:CardInterface;
+  public cards:CardInterface;
   public cardsResult:any[]=[];
   public isLogged =false;
 
