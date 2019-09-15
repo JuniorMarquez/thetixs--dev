@@ -1,40 +1,31 @@
-<section class="profile-header-nav padd-0 bb-1">
-			<div class="container">
-				<div class="row">
-					<div class="tr-list-detail">
-					</div>
-				</div>
-				<div class="row">
-					
-					<div class="col-md-8 col-sm-8">
-						<div class="tab" role="tabpanel">
-							<!-- Nav tabs -->
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation class="active><a href="restaurant-detail.html#Photos" aria-controls="messages" role="tab" data-toggle="tab"><i class="ti-gallery"></i>Overview</a></li>
-							
-								<li role="presentation"><a href="restaurant-detail.html#Features" aria-controls="profile" role="tab" data-toggle="tab"><i class="ti-settings"></i>Features</a></li>
-								
-							</ul>
-							<!-- Tab panes -->
-						</div>
-					</div>
-					
-				
-					
-				</div>
+<section class="profile-header-nav gray-bg padd-0 bb-1">
+	<div class="container">
+		<div class="row">
+			<div class="tr-list-detail">
 			</div>
-		</section>
-		
-		<!-- =================== Restaurant Detail ====================== -->
-		<section class="tr-single-detail gray-bg">
-			<div class="container">
-				<div class="row">
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8">
+				<div class="tab" role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation class="active><a href="restaurant-detail.html#Photos" aria-controls="messages" role="tab" data-toggle="tab"><i class="ti-gallery"></i>Overview</a></li>
+					
+						<li role="presentation"><a href="restaurant-detail.html#Features" aria-controls="profile" role="tab" data-toggle="tab"><i class="ti-settings"></i>Features</a></li>
+						
+					</ul>
+					<!-- Tab panes -->
+				</div>
+			</div>		
+		</div>
+		<div class="row">
 				
 					<div class="col-md-8 col-sm-12">
 						<div class="tab-content tabs">
 							
 
-							<div role="tabpanel" class="tab-pane fade in active" id="Photos"><div class="row">
+							<div role="tabpanel" class="tab-pane fade in active" id="Photos">
+								<div class="row">
 									<div class="tr-single-box">
 										<div class="tr-single-header">
 											<h4><i class="fa fa-star-o"></i>Overview</h4>
@@ -54,7 +45,8 @@
 												<div class="col-md-6 col-sm-6">
 													<div class="list-overview-detail">
 														<h5>{{tix.productName}}</h5>
-														<ul class="extra-service">
+														{{tix.description}}
+														<!-- <ul class="extra-service">
 															<li>
 																<div class="icon-box-icon-block">
 																	<a href="restaurant-detail.html#">
@@ -120,7 +112,7 @@
 																</div>
 															</li>
 															
-														</ul>
+														</ul> -->
 													</div>
 												</div>
 												
@@ -133,7 +125,7 @@
 							
 								
 								<!-- Description -->
-								<div class="row">
+								<!-- <div class="row">
 									<div class="tr-single-box">
 										<div class="tr-single-header">
 											<h4><i class="ti-files"></i>Description</h4>
@@ -142,7 +134,7 @@
 											<p>{{tix.description}}</p>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								
 								<!-- Amenities -->
 								
@@ -165,7 +157,7 @@
 									</div>
 								</div>
 							</div>
-<!-- ============ Overview =================== -->
+
 							<div role="tabpanel" class="tab-pane fade in " id="Overview">
 								
 								<!-- Overview -->
@@ -436,7 +428,7 @@
 										</div>
 									</div>
 									
-									<div class="row">
+									<!-- <div class="row">
 										<div class="col-xs-6">
 											<div class="form-group">
 												<label>Room</label>
@@ -467,9 +459,9 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 									
-									<div class="row">
+									<!-- <div class="row">
 										<div class="col-xs-12">
 											<button type="button" class="btn btn-default full-width text-left" data-toggle="collapse" data-target="#extra-service">Choose Extra Amenities<i class="ti-settings fl-right mrg-top-5"></i></button>
 											<div id="extra-service" class="collapse">
@@ -560,7 +552,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 									
 									<div class="row">
 										<div class="col-xs-12 mrg-top-15">
@@ -576,6 +568,7 @@
 						
 					</div>
 					<!-- /col-md-4 -->
-				</div>
-			</div>
-		</section>
+		</div>
+	</div>
+</section>
+<app-pre-footer></app-pre-footer>
