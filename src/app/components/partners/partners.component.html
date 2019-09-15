@@ -17,16 +17,9 @@
 										
 										<div class="col-sm-9 text-right">
 											<div class="btn-group mr-lg-2">
-												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													Filter By
-												</button>
-												<!-- <div class="dropdown-menu pull-right animated flipInX">
-													<ul>	
-														<li (click)="getActive()">Active</li>
-														<li (click)="getPending()">Pending</li>
-													
-													</ul>
-												</div> -->
+												</button> -->
 												<div class="btn-group">
 													 <a (click)="getActive()" class="btn btn-default tooltips">
 														 Active
@@ -35,7 +28,7 @@
 
 												<div class="btn-group">
 													 <a (click)="getPending()" class="btn btn-default tooltips">
-														 Pending
+														 Pendingw
 													 </a>
 												</div>
 											</div>
@@ -44,44 +37,39 @@
 									
 									</div>
 								</div>
+							</div>
 
 
-
-								<div class="gray-bg">
-									<div class="row">				
+											
 												
 	<!-- Single Guide -->
-					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" *ngFor="let card of cards">
-						<div class="guide-container">
-							<div class="guide-container-box row ">
-								
-
-								<div class="col-md-6">
-									<img src="assets/img/partner.jpg" class="img-responsive img-circle" alt="">
-								</div>
-								
-
-								<div class="col-md-6">
-									<h4>{{card.name}}</h4>						
-									<div class="">
-									<a routerLink="/partner-detail/{{card.id}}" class="btn btn-default"><i class="ti-user mrg-r-5" style="width: 100%;"></i>Detail</a>
-									</div>
-								</div >
-								
-							</div>
-							<div class="row ">
-								
-							</div>
-						</div>
-					</div>
-<!-- Single Guide -->					
+							<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let card of cards">
+								<div class="guide-container">
+									<div class="guide-container-box row ">
+										<div class="col-md-5 col-xs-5">
+											<img src="assets/img/partner.jpg" class="img-responsive img-circle" alt="">
+										</div>
+										<div class="col-md-7 col-xs-7">
+											<h4>{{card.name}}</h4>		
+											<div class="icon-box-icon-block">
+												<a >
+													<div class="icon-box-round">
+														<i routerLink="/partner-detail/{{card.id}}"  class="ti-eye"></i>
+													</div>
+													<div *ngIf="card.status == 'pending'" class="icon-box-round bg-success" style="color: white;">
+														<i   class="ti-check"></i>
+													</div>
+												</a>
+											</div>									
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+<!-- Single Guide -->						
 					</div>
-					
 				</div>
 			</div>
+						
 			 <app-pre-footer></app-pre-footer>
 		</section>
