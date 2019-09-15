@@ -21,8 +21,8 @@
 													Filter By
 												</button>
 												<div class="dropdown-menu pull-right animated flipInX">
-													<a href="restaurant-list-sidebar.html#">Active</a>
-													<a href="restaurant-list-sidebar.html#">Pending</a>
+													<a (click)="getActive()">Active</a>
+													<a (click)="getPending()">Pending</a>
 													
 												</div>
 											</div>
@@ -37,7 +37,7 @@
 									<div class="row">				
 												
 	<!-- Single Guide -->
-					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" >
+					<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" *ngFor="let card of cards">
 						<div class="guide-container">
 							<div class="guide-container-box row ">
 								
@@ -48,9 +48,9 @@
 								
 
 								<div class="col-md-6">
-									<h4>Adam Dicluver</h4>						
+									<h4>{{card.name}}</h4>						
 									<div class="">
-									<a routerLink="/partner-detail/{{tix.id}}" class="btn btn-default"><i class="ti-user mrg-r-5" style="width: 100%;"></i>Detail</a>
+									<a routerLink="/partner-detail/{{card.id}}" class="btn btn-default"><i class="ti-user mrg-r-5" style="width: 100%;"></i>Detail</a>
 									</div>
 								</div >
 								

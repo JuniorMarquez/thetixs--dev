@@ -13,7 +13,23 @@ export class PartnersComponent implements OnInit {
   	private dataApi: DataApiService
   	) { }
 
-  ngOnInit() {
-  }
+
+	public cards:CardInterface;
+ getActive(){
+        this.dataApi
+        .getActivePartners()
+        .subscribe((cards: CardInterface) => (this.cards=cards));
+    }
+ getPending(){
+        this.dataApi
+        .getPendingPartners()
+        .subscribe((cards: CardInterface) => (this.cards=cards));
+    }
+
+
+ 	ngOnInit(): void {
+     this.getActive();
+   		
+  	}
 
 }
