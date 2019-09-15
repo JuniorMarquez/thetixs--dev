@@ -38,9 +38,12 @@
 										<div class="guider-box-detail-content">
 											<h4>{{card.name}}<sup class="theme-cl "></sup></h4>
 											
-											<p>Status<span class="guider-status bg-warning">{{card.status}} </span></p>
+											<p>{{card.status}}
+												 <!-- <span class="guider-status bg-success"> Active </span> -->
+											</p>
 											<!-- <a href="guide-detail.html#" class="btn btn-info"></a> -->
-											<a href="guide-detail.html#" class="btn btn-default">Active</a>
+											<a *ngIf="card.status == 'pending'"  class="btn btn-default">Refuse</a>
+											<a *ngIf="card.status == 'pending'"  class="btn btn-success">Accept</a>
 										</div>
 										<div class="pr-table">
 											<ul>

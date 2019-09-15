@@ -21,13 +21,35 @@
 													Filter By
 												</button>
 												<div class="dropdown-menu pull-right animated flipInX">
-													<a (click)="getActive()">Active</a>
-													<a (click)="getPending()">Pending</a>
+													<li (click)="getActive()">Active</li>
+													<li (click)="getPending()">Pending</li>
 													
+												</div>
+												<div class="btn-group">
+													 <a (click)="getActive()" class="btn btn-default tooltips">
+														 Active
+													 </a>
+												</div>
+
+												<div class="btn-group">
+													 <a (click)="getPending()" class="btn btn-default tooltips">
+														 Pending
+													 </a>
 												</div>
 											</div>
 											
 										</div>
+										<div class="btn-group">
+								 <a routerLink="../alltixsleft" class="btn btn-default tooltips">
+									 <i class="ti-flix ti-filter"></i>
+								 </a>
+							</div>
+
+							<div class="btn-group">
+								 <a routerLink="../alltixslist" class="btn btn-default tooltips">
+									 <i class="ti-flix ti-view-list-alt"></i>
+								 </a>
+							</div>
 									</div>
 								</div>
 
