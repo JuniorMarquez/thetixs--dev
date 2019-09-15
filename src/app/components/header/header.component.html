@@ -30,8 +30,8 @@
                 </li>
 
 
-                <li><a routerLink="partners" *ngIf="this._uw.isLogged && !this._uw.affiliate && !this._uw.partner && this._uw.admin">Partners</a></li>
-                <li><a routerLink="affiliates" *ngIf="this._uw.isLogged && !this._uw.affiliate && !this._uw.partner && this._uw.admin">Affiliates</a></li>
+                <li><a routerLink="partners" *ngIf="this._uw.isLogged &&  this._uw.admin">Partners</a></li>
+                <li><a routerLink="affiliates"*ngIf="this._uw.isLogged &&  this._uw.admin">Affiliates</a></li>
                 <li><a routerLink="booking" *ngIf="this._uw.isLogged">Booking</a></li>
 
                 

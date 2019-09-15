@@ -24,13 +24,8 @@
 
 
 					<div class="col-md-8 col-sm-8">
-								
-						<!-- Guide Detail -->
 						<div class="">
 							<div class="tr-single-box">
-								<!-- <div class="tr-single-header"> -->
-									<!-- <h4><i class="ti-user"></i></h4> -->
-								<!-- </div> -->
 								<div class="tr-single-body">
 								
 									<div class="guider-box-detail">
@@ -40,14 +35,9 @@
 										</div>
 										<div class="guider-box-detail-content">
 											<h4>{{card.name}}<sup class="theme-cl "></sup></h4>
-											
-											<p>{{card.status}}
-												 <!-- <span class="guider-status bg-success"> Active </span> -->
+											<p>{{card.status}}						
 											</p>
-											<!-- <a href="guide-detail.html#" class="btn btn-info"></a> -->
-											<!-- <a *ngIf="card.status == 'pending'"  class="btn btn-default">Refuse</a>
-											<a *ngIf="card.status == 'pending'"  class="btn btn-success">Accept</a> -->
-
+			
 											<div class="icon-box-icon-block">
 												<a >
 													<div *ngIf="card.status == 'pending'" routerLink="/partner-detail/{{card.id}}" class="icon-box-round">
@@ -297,4 +287,4 @@
 				</div>
 			</div>
 		</section>
-		<app-pre-footer></app-pre-footer>
+		<!-- <app-pre-footer></app-pre-footer> -->

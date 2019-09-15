@@ -58,13 +58,24 @@ export class DataApiService {
 	}
 
 	getActivePartners(){
-		const url_api='http://192.168.0.107:3000/api/card?filter[where][status]=active';
+		const url_api='http://192.168.0.107:3000/api/card?filter[where][and][0][status]=active&filter[where][and][1][type]=partnerType';
 		return (this.cards = this.http.get(url_api));
 	}
 	getPendingPartners(){
-		const url_api='http://192.168.0.107:3000/api/card?filter[where][status]=pending';
+		const url_api='http://192.168.0.107:3000/api/card?filter[where][and][0][status]=pending&filter[where][and][1][type]=partnerType';
 		return (this.cards = this.http.get(url_api));
 	}
+
+	getActiveAffiliates(){
+		const url_api='http://192.168.0.107:3000/api/card?filter[where][and][0][status]=active&filter[where][and][1][type]=affiliateType';
+		return (this.cards = this.http.get(url_api));
+	}
+	getPendingAffiliates(){
+		const url_api='http://192.168.0.107:3000/api/card?filter[where][and][0][status]=pending&filter[where][and][1][type]=affiliateType';
+		return (this.cards = this.http.get(url_api));
+	}
+
+
 	saveTix(tix :TixInterface){
 		let token = this.authService.getToken();
 		const url_api='http://192.168.0.107:3000/api/product?access_token${token}';

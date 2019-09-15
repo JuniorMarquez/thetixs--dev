@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
+import {DataApiService} from '../../services/data-api.service';
+import { CardInterface } from '../../models/card-interface'; 
 
 @Component({
   selector: 'app-affiliates',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AffiliatesComponent implements OnInit {
 
-  constructor() { }
+   constructor(
+  	private dataApi: DataApiService
+  	) { }
 
-  ngOnInit() {
-  }
+
+	public cards:CardInterface;
+ getActive(){
+        this.dataApi
+        .getActiveAffiliates()
+        .subscribe((cards: CardInterface) => (this.cards=cards));
+    }
+ getPending(){
+        this.dataApi
+        .getPendingAffiliates()
+        .subscribe((cards: CardInterface) => (this.cards=cards));
+    }
+
+
+ 	ngOnInit(): void {
+     this.getActive();
+   		
+  	}
 
 }

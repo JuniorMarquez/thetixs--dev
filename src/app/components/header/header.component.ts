@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../models/user-interface'; 
+import {DataApiService} from '../../services/data-api.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserWService } from "../../services/user-w.service";
@@ -24,7 +25,13 @@ submitted = false;
 
 
 
-  constructor(private router: Router, private formBuilder: FormBuilder, public _uw:UserWService, private authService: AuthService,private location: Location) { }
+  constructor(
+    private router: Router, 
+    private formBuilder: FormBuilder, 
+    public _uw:UserWService, 
+    private authService: AuthService,
+      private dataApi: DataApiService,
+    private location: Location) { }
 //user: UserInterface;
  public user : UserInterface ={
     name:"",
@@ -38,6 +45,9 @@ submitted = false;
   public affiliateType = false;
   public adminType = false;
 
+
+    
+
   ngOnInit() {
   this.ngFormSignup = this.formBuilder.group({
       name: ['', Validators.required],
@@ -47,6 +57,17 @@ submitted = false;
       this.user = this.authService.getCurrentUser();
       this.onCheckUser();
       //this.onCheckUserType();
+      this.user = this.authService.getCurrentUser();
+      let val=(this.user.id).toString();
+      this.dataApi.getCards(val).subscribe((res:any) => {
+      if (res[0] === undefined){
+        }else{
+          this._uw.card= (res[0]);
+        if (res[0].type=="adminType"){
+            this._uw.admin=true;
+          }                  
+        }
+      });
      // this.router.navigate(['/coming']);
   }
 
