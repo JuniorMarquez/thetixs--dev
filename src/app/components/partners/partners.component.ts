@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
+import {DataApiService} from '../../services/data-api.service';
+import { CardInterface } from '../../models/card-interface'; 
 
 @Component({
   selector: 'app-partners',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private dataApi: DataApiService
+  	) { }
 
   ngOnInit() {
   }
