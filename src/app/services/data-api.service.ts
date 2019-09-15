@@ -16,6 +16,7 @@ export class DataApiService {
 	tixs: Observable<any>;
 	tix: Observable<any>;
 	cards: Observable<any>;
+	card: Observable<any>;
 
 
 	// cards:any={};
@@ -40,6 +41,12 @@ export class DataApiService {
 		const url_api=`http://192.168.0.107:3000/api/product/${indice}`;
 		this.tix = this.http.get(url_api);
 		return (this.tix);
+	}
+	getCardById(id:string){
+		let indice = id;
+		const url_api=`http://192.168.0.107:3000/api/card/${indice}`;
+		this.card = this.http.get(url_api);
+		return (this.card);
 	}
 	getPending(){
 		const url_api='http://192.168.0.107:3000/api/product?filter[where][status]=pending';

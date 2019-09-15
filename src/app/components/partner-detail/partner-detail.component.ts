@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollTopService }  from '../../services/scroll-top.service';
+import {DataApiService} from '../../services/data-api.service';
+import { CardInterface } from '../../models/card-interface'; 
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-partner-detail',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnerDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(public scrollTopService:ScrollTopService, private dataApi: DataApiService,private route:ActivatedRoute) { }
+	public card:CardInterface= {
+		userd:'',
+		phone:'',
+		companyName:'',
+		address:'',
+		status:'',
+		name:''
+	};
 
-  ngOnInit() {
-  }
+	  ngOnInit() {
+ this.scrollTopService.setScrollTop();
+	// 	const card_id: string=this.route.snapshot.paramMap.get('id');
+	  	this.getDetails(this.route.snapshot.paramMap.get('id'));
+
+	  }
+	getDetails(id: string){
+		this.dataApi.getCardById(id).subscribe(card => (this.card = card));
+	}
 
 }
+
+
+
