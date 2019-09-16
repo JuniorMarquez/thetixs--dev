@@ -58,16 +58,18 @@ submitted = false;
       this.onCheckUser();
       //this.onCheckUserType();
       this.user = this.authService.getCurrentUser();
-      let val=(this.user.id).toString();
-      this.dataApi.getCards(val).subscribe((res:any) => {
-      if (res[0] === undefined){
-        }else{
-          this._uw.card= (res[0]);
-        if (res[0].type=="adminType"){
-            this._uw.admin=true;
-          }                  
+      if (this.user  != undefined){
+        let val=(this.user.id).toString();
+        this.dataApi.getCards(val).subscribe((res:any) => {
+        if (res[0] === undefined){
+          }else{
+            this._uw.card= (res[0]);
+          if (res[0].type=="adminType"){
+              this._uw.admin=true;
+            }                  
         }
       });
+     }   
      // this.router.navigate(['/coming']);
   }
 
