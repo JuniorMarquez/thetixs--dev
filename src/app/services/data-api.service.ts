@@ -7,8 +7,6 @@ import { TixInterface } from '../models/tix-interface';
 import { CardInterface } from '../models/card-interface';
 import { UserWService } from "./user-w.service";
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,13 +15,11 @@ export class DataApiService {
 	tix: Observable<any>;
 	cards: Observable<any>;
 	card: Observable<any>;
-
-
-	// cards:any={};
- //info:any={};
-
-
-  constructor(public _uw:UserWService,private http: HttpClient, private authService:AuthService) {}
+  constructor(
+  	public _uw:UserWService,
+  	private http: HttpClient, 
+  	private authService:AuthService
+  	) {}
 
   	headers : HttpHeaders = new HttpHeaders({
   		"Content-Type":"application/json",

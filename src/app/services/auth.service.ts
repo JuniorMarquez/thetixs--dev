@@ -18,7 +18,6 @@ export class AuthService {
 		"Content-Type":"application/json"
 		});
 
-
 	registerUser(name :string, email: string, password: string){
 		const url_api ='http://192.168.0.107:3000/api/Users';
 		return this.http
