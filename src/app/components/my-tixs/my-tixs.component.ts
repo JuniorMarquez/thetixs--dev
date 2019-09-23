@@ -78,7 +78,7 @@ export class MyTixsComponent implements OnInit {
   }
 
   getUsersPending(){
-  this.dataApi.getUsersPending().subscribe((res:any) => {
+  this.dataApi.getPendingPartners().subscribe((res:any) => {
       if (res[0] === undefined){
         console.log("no");
        this._uw.usersPending=false;
@@ -90,6 +90,11 @@ export class MyTixsComponent implements OnInit {
         }
      });
    }
+   getPending(){
+        this.dataApi
+        .getPendingPartners()
+        .subscribe((cards: CardInterface) => (this.cards=cards));
+    }
 
 // getUsersPending(){
   //  this.dataApi
