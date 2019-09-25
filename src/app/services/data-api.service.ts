@@ -83,7 +83,7 @@ export class DataApiService {
 	//	let token = this.authService.getToken();
 		const url_api='https://www.thetixsapp.com:3000/api/product';
 		return this.http
-		.post<TixInterface>(url_api, tix,{headers: this.headers})
+		.post<TixInterface>(url_api, tix)
 		.pipe(map(data => data));
 	}
 	updateTix(tix: TixInterface){
