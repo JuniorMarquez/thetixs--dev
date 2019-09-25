@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../models/user-interface';  
 import { CardInterface } from '../../models/card-interface';  
+import { TixInterface } from '../../models/tix-interface';  
 import { UserWService } from "../../services/user-w.service";
 import { DataApiService } from '../../services/data-api.service';
 import { Observable } from 'rxjs/internal/Observable';
@@ -32,6 +33,7 @@ export class MyTixsComponent implements OnInit {
     password:""
   };
   public cards:CardInterface;
+  public tixs:TixInterface;
   public cardsResult:any[]=[];
   public isLogged =false;
 
@@ -69,7 +71,7 @@ export class MyTixsComponent implements OnInit {
           this.getUsersPending();
      //     console.log("el uuario es un adminitrador");
         }        
-        
+        this.getMyTixs();
 
         this._uw.type=res[0].type;
         //  console.log("bandera dentro", this._uw.bandera);              
@@ -97,6 +99,11 @@ export class MyTixsComponent implements OnInit {
         .subscribe((cards: CardInterface) => (this.cards=cards));
     }
 
+    getMyTixs(){
+      this.dataApi.
+      getMyTixs(this._uw.userd)
+      .subscribe((tixs: TixInterface)=>(this.tixs=tixs));
+    }
 // getUsersPending(){
   //  this.dataApi
     //    .getUsersPending()

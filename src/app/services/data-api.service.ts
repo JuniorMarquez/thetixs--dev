@@ -31,6 +31,13 @@ export class DataApiService {
 		return this.http.get(url_api);
 
 	}
+
+	getMyTixs(id:string){
+		let indice = id;
+		const url_api = "https://www.thetixsapp.com:3000/api/product?filter[where][userd]=a"+indice;
+		return this.http.get(url_api);
+	}
+
 	getTixById(id:string){
 		//console.log(id);
 		let indice = id;
