@@ -106,11 +106,11 @@ export class DataApiService {
 		return this.http.get(url_api);
 	}
 	saveCard(card: CardInterface){
-		//const token = this.authService.getToken();
-		//console.log(token);
+		// const token = this.authService.getToken();
+		// console.log(token);
 		const url_api='https://www.thetixsapp.com:3000/api/card';
 		return this.http
-		.post<CardInterface>(url_api, card,{headers: this.headers})
+		.post<CardInterface>(url_api, card)
 		.pipe(map(data => data));
 	}
 

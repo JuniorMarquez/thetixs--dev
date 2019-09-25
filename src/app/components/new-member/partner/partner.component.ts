@@ -70,20 +70,30 @@ export class PartnerComponent implements OnInit {
          this._uw.errorFormPartner=true;
       return;
         } 
-         this._uw.errorFormPartner=false;
-      this.user = this.authService.getCurrentUser();
-      let val=(this.user.id).toString();
-      this.card = this.ngFormPartner.value;
-      this.card.userd="a"+val;
+
+     if (this.ngFormPartner.valid) {
+        this._uw.errorFormPartner=false;
+     this.card=this.ngFormPartner.value;
       this.card.type="partnerType";
+      this.card.userd="a"+this._uw.userd;
       this.card.status="pending";
-      this.card.name=this.user.name;
-      return this.dataApiService.saveCard(this.card)
-        .subscribe(
-         // card => this.router.navigate(['/mytixs'])
-        );
+      this.card.name=this._uw.name;
+      this.envio(this.card); 
+     }
+        
   }    
-    
+
+
+    envio(card){
+         this.dataApiService
+        .saveCard(card)
+        .subscribe(card => {
+         this.router.navigate(['/mytixs']);
+          //location.reload();
+        }
+        );
+    }
+
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {

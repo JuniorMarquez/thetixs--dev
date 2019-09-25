@@ -42,6 +42,7 @@ export class MyTixsComponent implements OnInit {
 	  this.user = this.authService.getCurrentUser();
  	 	// console.log(this.user);
     this._uw.name=this.user.name;
+    this._uw.userd=this.user.id;
  	 	this.onCheckUser();     //--header update
     let val=(this.user.id).toString();
     this.dataApi.getCards(val).subscribe((res:any) => {

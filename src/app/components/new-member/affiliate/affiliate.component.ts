@@ -66,26 +66,35 @@ ngOnInit() {
   return this.ngFormAffiliate.controls;
   }
 
-  sendProfile(){
-    
+ 
+
+
+    sendProfile(){
       this.submitted = true;
       if (this.ngFormAffiliate.invalid) {
-     this._uw.errorFormAffiliate=true;
+         this._uw.errorFormPartner=true;
       return;
         } 
-        this._uw.errorFormAffiliate=false;
-      this.user = this.authService.getCurrentUser();
-      let val=(this.user.id).toString();
-      this.card = this.ngFormAffiliate.value;
-      this.card.userd="a"+val;
+      this._uw.errorFormPartner=false;
+      this.card=this.ngFormAffiliate.value;
       this.card.type="affiliateType";
+      this.card.userd="a"+this._uw.userd;
       this.card.status="pending";
-      this.card.name=this.user.name;
-      this.dataApiService.saveCard(this.card)
-        .subscribe(
-          // card => this.router.navigate(['/mytixs'])
-        );
+      this.card.name=this._uw.name;
+      this.envio(this.card); 
   }    
+
+
+    envio(card){
+         this.dataApiService
+        .saveCard(card)
+        .subscribe(card => {
+         this.router.navigate(['/mytixs']);
+          //location.reload();
+        }
+        );
+    }
+
     
   onIsError(): void {
     this.isError = true;
