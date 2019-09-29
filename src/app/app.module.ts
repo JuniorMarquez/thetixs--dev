@@ -49,7 +49,7 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+// import { MatFileUploadModule } from 'angular-material-fileupload';
  
 
 import { HttpClientModule } from '@angular/common/http';
@@ -130,7 +130,7 @@ import { XunkCalendarModule } from '../xunk-calendar/xunk-calendar.module';
     CarouselModule,
     XunkCalendarModule,
      // NgxUploadModule.forRoot(),
-     MatFileUploadModule,
+     // MatFileUploadModule,
      FilePickerModule
   ],
   exports: [
