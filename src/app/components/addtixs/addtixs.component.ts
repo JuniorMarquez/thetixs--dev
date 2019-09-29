@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../models/user-interface'; 
 import { CardInterface } from '../../models/card-interface'; 
@@ -11,11 +12,9 @@ import { Router } from '@angular/router';
 import { isError } from "util";
 import { Location } from '@angular/common';
 import { ConfirmEqualValidatorDirective } from '../../confirm-equal-validator.directive';
-
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
-
-
-
+import { HttpClient } from  '@angular/common/http';
+import { DemoFilePickerAdapter } from  '../../file-picker.adapter';
 
 @Component({
   selector: 'app-addtixs',
@@ -24,21 +23,22 @@ import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 })
 export class AddtixsComponent implements OnInit {
 
-ngFormAddtixs: FormGroup;
+  adapter = new DemoFilePickerAdapter(this.http);
+
+  ngFormAddtixs: FormGroup;
   submitted = false;
 
-
-
   constructor(
-  public _uw:UserWService, 
-  private dataApiService: DataApiService,
-  private authService: AuthService, 
-  private location: Location,
-  private router: Router,
-  private formBuilder: FormBuilder
+    private  http: HttpClient,
+    public _uw:UserWService, 
+    private dataApiService: DataApiService,
+    private authService: AuthService, 
+    private location: Location,
+    private router: Router,
+    private formBuilder: FormBuilder
   	) { }
 
-public user : UserInterface ={
+  public user : UserInterface ={
     name:"",
     email:"",
     password:""
@@ -51,7 +51,8 @@ public user : UserInterface ={
       companyName:"",
       address:""
     };
-public tix : TixInterface ={
+  
+  public tix : TixInterface ={
       userd:"",
       productName:"",
       description:"",
@@ -59,12 +60,11 @@ public tix : TixInterface ={
       category:""
     };
 
-
   public isError = false;
   public isLogged =false;
 
   ngOnInit() {
-  	 this.ngFormAddtixs = this.formBuilder.group({
+      this.ngFormAddtixs = this.formBuilder.group({
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       notes: ['', [Validators.required]],
@@ -72,9 +72,10 @@ public tix : TixInterface ={
       });
   }
 
- get fval() {
-  return this.ngFormAddtixs.controls;
-  }
+
+  get fval() {
+    return this.ngFormAddtixs.controls;
+    }
 
   sendTix(){
       this.submitted = true;
@@ -110,9 +111,5 @@ public tix : TixInterface ={
     this._uw.selectorA=true;
     this.router.navigate(['/addtixs']);
   }
-
-
-
-
 
 }

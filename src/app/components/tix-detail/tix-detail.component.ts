@@ -3,6 +3,10 @@ import { ScrollTopService }  from '../../services/scroll-top.service';
 import {DataApiService} from '../../services/data-api.service';
 import { TixInterface } from '../../models/tix-interface'; 
 import { ActivatedRoute, Params} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule, MatCheckboxModule,MatTabsModule } from '@angular/material';
+
+import { XunkCalendarModule } from '../../../xunk-calendar/xunk-calendar.module';
 
 
 @Component({
@@ -20,7 +24,9 @@ public tix:TixInterface= {
 	notes:'',
 	images: ['', '']
 };
+public selDate = { date:1, month:1, year:1 };
   ngOnInit() {
+      this.selDate = XunkCalendarModule.getToday();
    this.scrollTopService.setScrollTop();
 //  	const tix_id: string=this.route.snapshot.paramMap.get('id');
   	this.getDetails(this.route.snapshot.paramMap.get('id'));
