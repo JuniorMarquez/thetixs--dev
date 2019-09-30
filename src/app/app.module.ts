@@ -4,7 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ArchwizardModule } from 'angular-archwizard';
-
+import { HttpClientModule } from '@angular/common/http';
+import { Component, Inject} from '@angular/core';
+import { XunkCalendarModule } from '../xunk-calendar/xunk-calendar.module';
 
 
 //RUTAS
@@ -16,45 +18,13 @@ import { environment } from '../environments/environment';
 
 //DIRECTIVAS
 import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
-import { FilePickerModule } from  'ngx-awesome-uploader';
+import { FilePickerModule } from  '../assets/file-picker/src/public_api';
 
 //COMPONENTS
 
 import { CatalogComponent,DialogOverviewExampleDialog } from './components/catalog/catalog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-
-//SERVICES
-import {TixsService} from './services/tixs.service';
-import {ProductInfoService} from './services/product-info.service';
-import {CarService} from './services/car.service';
-import {DataApiService} from './services/data-api.service';
-import {ScrollTopService} from './services/scroll-top.service';
-import {UserWService} from './services/user-w.service';
-
-
-
-//ANIMATIONS
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-//MATERIAL
-import {MatButtonModule, MatCheckboxModule,MatTabsModule } from '@angular/material';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatTableModule} from '@angular/material/table';
-// import { MatFileUploadModule } from 'angular-material-fileupload';
- 
-
-import { HttpClientModule } from '@angular/common/http';
-//import { LightboxModule } from 'ngx-lightbox';
-import { Component, Inject} from '@angular/core';
 import { TopTixsComponent } from './components/top-tixs/top-tixs.component';
 import { SliderHomeComponent } from './components/slider-home/slider-home.component';
 import { PreFooterComponent } from './components/pre-footer/pre-footer.component';
@@ -77,8 +47,32 @@ import { AddtixsComponent } from './components/addtixs/addtixs.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { AlltixslistComponent } from './components/alltixslist/alltixslist.component';
 import { AlltixsleftComponent } from './components/alltixsleft/alltixsleft.component';
-import { XunkCalendarModule } from '../xunk-calendar/xunk-calendar.module';
 
+
+//SERVICES
+import {TixsService} from './services/tixs.service';
+import {ProductInfoService} from './services/product-info.service';
+import {CarService} from './services/car.service';
+import {DataApiService} from './services/data-api.service';
+import {ScrollTopService} from './services/scroll-top.service';
+import {UserWService} from './services/user-w.service';
+
+
+//ANIMATIONS
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+//MATERIAL
+import {MatButtonModule, MatCheckboxModule,MatTabsModule } from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -129,9 +123,7 @@ import { XunkCalendarModule } from '../xunk-calendar/xunk-calendar.module';
     ArchwizardModule,
     CarouselModule,
     XunkCalendarModule,
-     // NgxUploadModule.forRoot(),
-     // MatFileUploadModule,
-     FilePickerModule
+    FilePickerModule
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatTabsModule,MatDialogModule,MatIconModule,MatInputModule,

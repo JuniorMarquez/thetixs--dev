@@ -1,3 +1,14 @@
+import { FilePickerComponent } from '../../../assets/file-picker/src/lib/file-picker.component';
+import { ValidationError } from '../../../assets/file-picker/src/lib/validation-error.model';
+import { FilePreviewModel } from '../../../assets/file-picker/src/lib/file-preview.model';
+// import { HttpClient } from '@angular/common/http';
+// import { DemoFilePickerAdapter } from './demo-file-picker.adapter';
+// import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
+// import { UploaderCaptions } from 'projects/file-picker/src/public_api';
+
+
 
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
@@ -6,8 +17,8 @@ import { CardInterface } from '../../models/card-interface';
 import { TixInterface } from '../../models/tix-interface';  
 import { UserWService } from '../../services/user-w.service';
 import { DataApiService } from '../../services/data-api.service';
-import { Observable } from 'rxjs/internal/Observable';
-import { map } from 'rxjs/operators';
+// import { Observable } from 'rxjs/internal/Observable';
+// import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { isError } from "util";
 import { Location } from '@angular/common';
@@ -23,7 +34,12 @@ import { DemoFilePickerAdapter } from  '../../file-picker.adapter';
 })
 export class AddtixsComponent implements OnInit {
 
-  adapter = new DemoFilePickerAdapter(this.http);
+  adapter = new DemoFilePickerAdapter(this.http,this._uw);
+  @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
+   myFiles: FilePreviewModel[] = [];
+
+
+
 
   ngFormAddtixs: FormGroup;
   submitted = false;
@@ -37,6 +53,7 @@ export class AddtixsComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder
   	) { }
+
 
   public user : UserInterface ={
     name:"",
@@ -52,16 +69,22 @@ export class AddtixsComponent implements OnInit {
       address:""
     };
   
-  public tix : TixInterface ={
+  public tix  ={
       userd:"",
       productName:"",
       description:"",
       notes:"",
-      category:""
+      category:"",
+      status:"",
+      images:[]
+
     };
 
   public isError = false;
   public isLogged =false;
+  public urlCreated = "";
+  public images:any[]=[];
+
 
   ngOnInit() {
       this.ngFormAddtixs = this.formBuilder.group({
@@ -78,6 +101,7 @@ export class AddtixsComponent implements OnInit {
     }
 
   sendTix(){
+
       this.submitted = true;
       if (this.ngFormAddtixs.invalid) {
          this._uw.errorFormAddtixs=true;
@@ -88,7 +112,8 @@ export class AddtixsComponent implements OnInit {
       let val=(this.user.id).toString();
       this.tix = this.ngFormAddtixs.value;
       this.tix.userd="a"+val;
-      this.tix.status="pending";
+      this.tix.status="activated";
+      this.tix.images=this.images;
       return this.dataApiService.saveTixFree(this.tix)
         .subscribe(
          // tix => this.router.navigate(['/mytixs'])
@@ -111,5 +136,26 @@ export class AddtixsComponent implements OnInit {
     this._uw.selectorA=true;
     this.router.navigate(['/addtixs']);
   }
+    onValidationError(e: ValidationError) {
+    console.log(e);
+  }
+  onUploadSuccess(e: FilePreviewModel) {
+   // console.log(e);
+  console.log(this.myFiles)
+  }
+  onRemoveSuccess(e: FilePreviewModel) {
+    console.log(e);
+  }
+  onFileAdded(file: FilePreviewModel) {
+    
+    file.fileName="http://18.191.65.29/imgApi/server/local-storage/tixsImages/"+file.fileName;
+    this.myFiles.push(file);
+    this.images.push(file.fileName);
+  
+  }
+  removeFile() {
+  this.uploader.removeFileFromList(this.myFiles[0].fileName);
+  }
+
 
 }

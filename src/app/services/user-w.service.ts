@@ -24,6 +24,8 @@ isLogged:boolean=false;
 	usersPending:boolean;
 	cardsResult:any[]=[];
 	card:any={};
+	queue:any[]=[];
+	file:any[]=[];
   constructor() { }
 }
 

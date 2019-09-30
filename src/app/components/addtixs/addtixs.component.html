@@ -11,20 +11,47 @@
 									
 									<h3 class="dashboard-title">
 										 
-										Add Tix
+										
+										Add Tix 
+									<!-- 	<div *ngFor="let item of this._uw.file">
+											 {{item.name}}
+										</div> -->
 										
 									</h3>
 								</div>
 								<div class="row tr-single-body"  >
+
 									<div class="col-md-4 " style="
 									padding: 15px 15px 30px 15px; background:#fafbfd!important; border-radius: 10px;">
+									
+
 										<ngx-file-picker
-										[adapter]="adapter"
+									
+    [uploadType]="'multi'"
+    (validationError)= "onValidationError($event)"
+    [adapter]="adapter"
+    [fileExtensions]="['pdf', 'jpeg','jpg', 'png', 'PNG', 'mp4', 'css', 'docx', 'txt']"
+    (uploadSuccess)="onUploadSuccess($event)"
+    (removeSuccess)="onRemoveSuccess($event)"
+    [showeDragDropZone]="true"
+    [showPreviewContainer]="true"
+
+    [accept]="'image/*'"
+    [captions]="captions"
+    (fileAdded)="onFileAdded($event)"
 										>
 										</ngx-file-picker>
+
+									<!-- 	<ng-template  #itemTemplate  let-fileItem="fileItem">
+
+										[itemTemplate]="itemTemplate"
+	<p>{{fileItem.file.size}}</p>
+	<p>{{fileItem.fileName}}</p>
+	<button  (click)="uploader.removeFile(fileItem)">Remove</button>
+</ng-template> -->
 									</div>
 									<div class="col-md-7">
-										<form  class="form"[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix()" >
+												<form  class="form"[formGroup]="ngFormAddtixs" (ngSubmit) ="sendTix()" >
 											
 											<aw-wizard>
 												<aw-wizard-step stepTitle="Tix">
@@ -158,6 +185,7 @@
 												  </aw-wizard-step>
 											</aw-wizard>
 										</form>
+										
 									</div>	
 								</div>
 							</div>
